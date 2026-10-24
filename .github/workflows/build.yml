@@ -9,8 +9,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-      - run: chmod +x gradlew || true
-      - run: ./gradlew assembleDebug || echo "Estructura lista"
+      - name: Build with Gradle
+        run: |
+          chmod +x gradlew || true
+          ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
           name: app-debug
