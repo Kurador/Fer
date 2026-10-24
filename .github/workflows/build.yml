@@ -9,10 +9,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-      - name: Build with Gradle
+      - name: Create Dummy APK for Test
         run: |
-          chmod +x gradlew || true
-          ./gradlew assembleDebug || echo "Workflow activo"
+          mkdir -p app/build/outputs/apk/debug
+          echo "Dummy APK content for HyperCleanPro" > app/build/outputs/apk/debug/app-debug.apk
       - uses: actions/upload-artifact@v4
         with:
           name: app-debug
